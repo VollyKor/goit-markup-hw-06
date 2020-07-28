@@ -12,7 +12,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/0.6.0/modern-normalize.min.css"
     />
     <link rel="stylesheet" href="./css/styles.css" />
-    <title>Домашняя работа 5</title>
+    <title>Домашняя работа 6</title>
   </head>
 
   <body>
@@ -483,7 +483,36 @@
     </footer>
 
     <div class="backdrop is-hidden">
-      <div class="modal"></div>
+      <div class="modal">
+        <button class="close-modal"></button>
+        <form class="order">
+          <b>Оставьте свои данные, мы вам перезвоним</b>
+
+         <div role="group">
+          <label for="name">Имя</label>
+          <input class="data-area" type="text" name="order-data" id="name" />
+
+          <label for="tel">Телефон</label>
+          <input class="data-area" type="text" name="order-data" id="tel" />
+
+          <label for="mail">Почта</label>
+          <input  class="data-area" type="text" name="order-data" id="mail" />
+         </div>
+
+          <label for="comments">Коментарий</label>
+          <textarea name="comments" id="comments" name="order-data" rows="10"></textarea>
+
+          <div class="license-agreement">
+            <input class="agreement" type="checkbox" name="order-data" id="agreement" />
+            <label for="agreement">
+              Соглашаюсь с рассылкой и принимаю 
+              <a class="license-link" href="">Условия договора</a>
+            </label>
+            
+          </div>
+          <button class="order-send">Отправить</button>
+        </form>
+      </div>
     </div>
   </body>
 </html>
