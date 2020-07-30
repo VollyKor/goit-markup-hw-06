@@ -402,21 +402,26 @@
           </ul>
         </div>
 
-        <!-- Форма подпишись -->
-        <div class="form-subscribe">
-          <p class="footer-subtitle">
+        <!-- Форма подпишись -->      
+
+        <form class="form-subscribe">
+          <span class="footer-subtitle">
             Подпишитесь на рассылку
-            </p>
-            <!-- какаято форма-->
-            <button class="sign-button" type="button">
-            <span>Подписаться</span>
+          </span>
+          <div class="subscribe-field flex-box">
+            <label class="">              
+              <input class="form-field" type="text" name="subscribe" placeholder=" " autocomplete="email">
+              <span class="subscribe-tooltip animate__lightSpeedInRight">E-mail</span>
+            </label>
+            <button class="subscribe-button" type="button">
+              <span>Подписаться</span>
               <!-- <svg class="sign-icon">
-                <use href="./images/sprite.svg#send"></use>
-              </svg> -->
+                  <use href="./images/sprite.svg#send"></use>
+                </svg> -->
             </button>
-                  </div>
+          </div>
+        </form>
       </div>
-      <!-- Форму "Подписывайся" сказали не трогать" -->
     </footer>
   </body>
 </html>

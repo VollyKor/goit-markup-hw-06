@@ -628,6 +628,7 @@ footer > .container {
 }
 
 .footer-subtitle {
+  display: block;
   margin-bottom: 20px;
 
   color: var(--primary-white-color);
@@ -636,11 +637,68 @@ footer > .container {
   text-transform: uppercase;
 }
 
-.sign-button {
+.form-subscribe {
   display: block;
+}
 
-  width: 200px;
+.subscribe-field > label {
+  position: relative;
+}
+
+.subscribe-tooltip {
+  position: absolute;
+  top: 15px; 
+  left: 16px;
+
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 16px;
+  line-height: 1.25; 
+  transition: 
+  transform 250ms var(--time-function), 
+  color 250ms var(--time-function) ;
+}
+
+.form-field {    
+  width: 358px;
   height: 50px;
+  margin-right: 12px;
+  padding-left: 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  background-color: var(--secondary-background-color);
+
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--background-color);
+  outline: transparent;  
+}
+
+.form-field:focus {
+  background-color: var(--background-color);
+  color: var(--primary-black-color);
+}
+
+.form-field:focus + .subscribe-tooltip,
+.form-field:not(:placeholder-shown) + .subscribe-tooltip {
+  transform: translateX(-70px);
+  color: var(--primary-white-color);
+}
+
+/* .field::placeholder-shown{  
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  background-color: var(--secondary-background-color);
+
+  color: var(--background-color);
+  outline: none;
+} */
+
+.subscribe-button {
+  /* display: block; */
+  padding: 10px 29px;
+  /* width: 200px;
+  height: 50px; */
 
   color: var(--primary-white-color);
   background-color: var(--secondary-color);
@@ -654,13 +712,13 @@ footer > .container {
   letter-spacing: 0.06em;
 }
 
-.sign-button > span {
+.subscribe-button > span {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.sign-button > span::after {
+.subscribe-button > span::after {
   display: block;
   content: "";
   background-image: url("../images/icon-send.svg");
@@ -924,8 +982,8 @@ textarea {
 
   color: var(--secondary-color);
 }
-/* 
+
 .is-hidden {
 opacity: 0;
 pointer-events: none;
-} */
+}
