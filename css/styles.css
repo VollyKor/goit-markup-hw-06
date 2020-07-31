@@ -9,7 +9,16 @@
     /* Chrome 26+, Opera 23+, Firefox 39+ */
       url("../fonts/raleway-v16-latin-700.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
-
+/* @keyframes fadeInBottomRight {
+  from {
+    opacity: 0;
+    transform: translate3d(50%, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+} */
 /* 
 Шрифты
 font-family: Raleway;
@@ -124,6 +133,22 @@ svg {
   color: var(--secondary-color);
   fill: var(--secondary-color);
 }
+
+.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
 
 /* index.html */
 
@@ -441,8 +466,6 @@ section.team {
 .team-card:not(:last-child) {
   margin-right: 30px;
 }
-/* Дальше белую карточку будем поднимать на фотографию 
-   Также добавить hover, focus на .bio-item */
 
 .team-card {
   width: 270px;
@@ -685,15 +708,6 @@ footer > .container {
   color: var(--primary-white-color);
 }
 
-/* .field::placeholder-shown{  
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 4px;
-  background-color: var(--secondary-background-color);
-
-  color: var(--background-color);
-  outline: none;
-} */
-
 .subscribe-button {
   /* display: block; */
   padding: 10px 29px;
@@ -747,8 +761,10 @@ footer > .container {
   line-height: 1.62;
   text-align: center;
 
-  transition: background-color 250ms var(--time-function),
-    color 250ms var(--time-function), box-shadow 250ms var(--time-function);
+  transition: 
+    background-color 250ms var(--time-function),
+    color 250ms var(--time-function), 
+    box-shadow 250ms var(--time-function);
 }
 
 .gallery-button:hover,
@@ -783,7 +799,9 @@ footer > .container {
 
 .gallery-item:hover,
 .gallery-item-focus {
-  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16), 0px 4px 4px rgba(0, 0, 0, 0.06),
+  box-shadow: 
+    1px 4px 6px rgba(0, 0, 0, 0.16), 
+    0px 4px 4px rgba(0, 0, 0, 0.06),
     0px 1px 1px rgba(0, 0, 0, 0.12);
 }
 
@@ -834,12 +852,12 @@ footer > .container {
 
 .gallery-item:hover .gallery-text,
 .gallery-item-focus .gallery-text {
-  transform: translateY(0);
+  transform: translateY(-100%);
 }
 
 .gallery-text {
   position: absolute;
-  top: 0;
+  top: 100%;
   left: 0;
   z-index: 2;
 
@@ -855,7 +873,7 @@ footer > .container {
   line-height: 1.56;
 
   transition: transform 250ms var(--time-function);
-  transform: translateY(calc(100% + 1px));
+  transform: translateY(100%);
 }
 
 /* Модальное окно и форма */
@@ -869,14 +887,13 @@ footer > .container {
   background-color: var(--modal-background-color);
 }
 
-.modal {
+.modal-window {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 
-  min-width: 200px;
-  min-height: 200px;
+  width: 528px;
   background-color: #fff;
 
   box-shadow: 
@@ -886,18 +903,51 @@ footer > .container {
   border-radius: 4px;
 }
 
-.modal > form {
-  display: flex;
-  flex-direction: column;
+.close-modal {  
+  position: absolute;
+  top: 8px;
+  right: 8px;
 
+  display: flex;
   justify-content: center;
-  /* align-items: center; */
+  align-items: center;
+
+  width: 30px;
+  height: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  background-color: var(--primary-white-color);
 }
 
-.order > b {
+.close-icon {
+  width: 18px;
+  height: 18px;
+  fill: var(--secondary-black-color);
+}
+
+.close-modal:focus {
+  outline: none;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-color: var(--secondary-color);
+}
+
+.close-modal:hover .close-icon {
+  fill: var(--secondary-color);
+}
+
+.flex-vertical {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-text {
+  display: block;
   text-align: center;
   margin-top: 40px;
   margin-bottom: 28px;
+  /* margin-right: 40px;
+  margin-left: 40px; */
 
   font-weight: 700;
   font-size: 20px;
@@ -905,34 +955,113 @@ footer > .container {
   color: var(--primary-black-color);
 }
 
-.data-area {
+.input-data {
   display: block;
   width: 448px;
   height: 40px;
-  margin: 0px 40px;
-  margin-bottom: 28px;
 
   border: 1px solid rgba(33, 33, 33, 0.2);
   border-radius: 4px;
 }
-.order label {
-  margin-left: 40px;
-  display: block;
-  align-items: left;
+
+.form-input{
+position: relative;
+margin-bottom: 28px;
 }
 
-textarea {
-  margin: 0px 40px;
-  width: 448px;
-  border: 1px solid rgba(33, 33, 33, 0.2);
-  border-radius: 4px;
-  resize: none;
+.input-data {
+  padding-left: 42px;
+}
+
+.input-tooltip {
+  left: 42px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  font-size: 14px;
+  line-height: 1.07;
+  color: var(--grey-color);
+
+  transition: 
+  transform 250ms var(--time-function),
+  color 250ms var(--time-function),
+  font-size 250ms var(--time-function);
+}
+
+.input-icon {
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  
+  width: 18px;
+  height: 18px;
+
+  fill: var(--primary-black-color);
+}
+
+.input-data:focus,
+.input-data:not(:placeholder-shown),
+.comments-data:focus,
+.comments-data:not(:placeholder-shown) {
+  outline: none;
+  border-color: var(--secondary-color);
+}
+
+.input-tooltip,
+.input-icon,
+.comments-tooltip {
+  position: absolute;
+  z-index: 2;
+}
+
+.input-data:focus ~ .input-icon {
+  fill: var(--secondary-color);
+}
+
+.input-data:focus ~ .input-tooltip,
+.input-data:not(:placeholder-shown) ~ .input-tooltip{
+  transform: translate(-24px, -36px);
+  color: var(--secondary-color);
+  font-size: 12px;
+}
+
+.input-data:focus ~ .input-icon,
+.input-data:not(:placeholder-shown) ~ .input-icon{
+fill: var(--secondary-color);
+}
+
+.form-comments{
+  position: relative;
   margin-bottom: 20px;
+}
+
+.comments-data {
+  width: 448px;
+  height: 120px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  resize: none; 
+}
+
+.comments-tooltip {
+  top: 12px;
+  left: 16px;
+
+  transition: 
+  transform 250ms var(--time-function),
+  color 250ms var(--time-function),
+  font-size 250ms var(--time-function);
+}
+
+.comments-data:focus ~ .comments-tooltip,
+.comments-data:not(:placeholder-shown) ~ .comments-tooltip {
+  transform: translateY(-36px);
+  color: var(--secondary-color);
+  font-size: 12px;
 }
 
 .license-agreement {
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   margin-bottom: 30px;
   margin-left: 40px;
@@ -948,7 +1077,7 @@ textarea {
 
 .agreement {
   display: block;
-  /* margin-left: 40px; */
+ 
 }
 
 .order-send {
@@ -983,7 +1112,4 @@ textarea {
   color: var(--secondary-color);
 }
 
-.is-hidden {
-opacity: 0;
-pointer-events: none;
-}
+

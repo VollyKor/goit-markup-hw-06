@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
-  />
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+    />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap"
@@ -78,7 +78,7 @@
           <br />
           для вашего бизнеса
         </h1>
-        <button class="button-order" type="button">
+        <button class="button-order" data-modal-open type="button">
           Заказать услугу
         </button>
       </section>
@@ -135,8 +135,8 @@
                 width="370"
                 height="294"
               />
+              <span class="spec-desc">Десктопные приложения</span>
             </a>
-            <p class="spec-desc">Десктопные приложения</p>
           </li>
           <li>
             <a class="specialization-link" href="">
@@ -146,8 +146,8 @@
                 width="370"
                 height="294"
               />
+              <span class="spec-desc">Мобильные приложения</span>
             </a>
-            <p class="spec-desc">Мобильные приложения</p>
           </li>
           <li>
             <a class="specialization-link" href="">
@@ -157,8 +157,8 @@
                 width="370"
                 height="294"
               />
+              <span class="spec-desc">Дизайнерские решения</span>
             </a>
-            <p class="spec-desc">Дизайнерские решения</p>
           </li>
         </ul>
       </section>
@@ -469,16 +469,22 @@
           </ul>
         </div>
 
-        <!-- Форма подпишись -->      
+        <!-- Форма подпишись -->
 
         <form class="form-subscribe">
           <span class="footer-subtitle">
             Подпишитесь на рассылку
           </span>
           <div class="subscribe-field flex-box">
-            <label class="">              
-              <input class="form-field" type="text" name="subscribe" placeholder=" " autocomplete="email">
-              <span class="subscribe-tooltip animate__lightSpeedInRight">E-mail</span>
+            <label class="">
+              <input
+                class="form-field"
+                type="text"
+                name="subscribe"
+                placeholder=" "
+                autocomplete="email"
+              />
+              <span class="subscribe-tooltip">E-mail</span>
             </label>
             <button class="subscribe-button" type="button">
               <span>Подписаться</span>
@@ -491,37 +497,84 @@
       </div>
     </footer>
 
-    <div class="backdrop is-hidden">
-      <div class="modal">
-        <button class="close-modal"></button>
-        <form class="order">
-          <b>Оставьте свои данные, мы вам перезвоним</b>
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal-window">
+        <button class="close-modal" data-modal-close>
+          <svg class="close-icon">
+            <use href="./images/sprite.svg#close"></use>
+          </svg>
+        </button>
+        <form class="form-order">
+          <b class="form-text">Оставьте свои данные, мы вам перезвоним</b>
 
-         <div role="group">
-          <label for="name">Имя</label>
-          <input class="data-area" type="text" name="order-data" id="name" />
-
-          <label for="tel">Телефон</label>
-          <input class="data-area" type="text" name="order-data" id="tel" />
-
-          <label for="mail">Почта</label>
-          <input  class="data-area" type="text" name="order-data" id="mail" />
-         </div>
-
-          <label for="comments">Коментарий</label>
-          <textarea name="comments" id="comments" name="order-data" rows="10"></textarea>
-
-          <div class="license-agreement">
-            <input class="agreement" type="checkbox" name="order-data" id="agreement" />
-            <label for="agreement">
-              Соглашаюсь с рассылкой и принимаю 
-              <a class="license-link" href="">Условия договора</a>
+          <div class="flex-vertical" role="group">
+            <label class="form-input">
+              <input
+                class="input-data"
+                type="text"
+                name="order-data"
+                placeholder=" "
+              />
+              <span class="input-tooltip">Имя</span>
+              <svg class="input-icon">
+                <use href="./images/sprite.svg#name"></use>
+              </svg>
             </label>
-            
+
+            <label class="form-input">
+              <input
+                class="input-data"
+                type="text"
+                name="order-data"
+                placeholder=" "
+              />
+              <span class="input-tooltip">Телефон</span>
+              <svg class="input-icon">
+                <use href="./images/sprite.svg#phone"></use>
+              </svg>
+            </label>
+
+            <label class="form-input">
+              <input
+                class="input-data"
+                type="text"
+                name="order-data"
+                placeholder=" "
+              />
+              <span class="input-tooltip">Почта</span>
+              <svg class="input-icon">
+                <use href="./images/sprite.svg#email"></use>
+              </svg>
+            </label>
+
+            <label class="form-comments">
+              <textarea
+                class="comments-data"
+                name="comments-data"
+                name="order-data"
+                rows="10"
+                placeholder=" "
+              ></textarea>
+              <span class="comments-tooltip">Коментарий</span>
+            </label>
+
+            <label class="license-agreement">
+              <input
+                class="agreement-checkbox visually-hidden"
+                type="checkbox"
+                name="order-data"
+              />
+              <span class="agreement-description">
+                Соглашаюсь с рассылкой и принимаю
+                <a class="license-link" href="">Условия договора </a>
+              </span>
+            1</label>
           </div>
+
           <button class="order-send">Отправить</button>
         </form>
       </div>
     </div>
+    <script src="./js/modal.js"></script>
   </body>
 </html>
