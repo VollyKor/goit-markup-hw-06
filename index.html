@@ -497,6 +497,8 @@
       </div>
     </footer>
 
+    <!-- Бекдроп -->
+
     <div class="backdrop is-hidden" data-modal>
       <div class="modal-window">
         <button class="close-modal" data-modal-close>
@@ -505,7 +507,7 @@
           </svg>
         </button>
         <form class="form-order">
-          <b class="form-text">Оставьте свои данные, мы вам перезвоним</b>
+          <p class="form-text">Оставьте свои данные, мы вам перезвоним</p>
 
           <div class="flex-vertical" role="group">
             <label class="form-input">
@@ -550,7 +552,6 @@
             <label class="form-comments">
               <textarea
                 class="comments-data"
-                name="comments-data"
                 name="order-data"
                 rows="10"
                 placeholder=" "
@@ -563,15 +564,14 @@
                 class="checkbox visually-hidden"
                 type="checkbox"
                 name="order-data"
-              />      
-              <span class="checkbox-icon"></span>  
+              />
+              <span class="checkbox-icon"></span>
 
-              <p class="agreement-description">                
+              <span class="agreement-description">
                 Соглашаюсь с рассылкой и принимаю
                 <a class="license-link" href="">Условия договора </a>
-              </p>
+                </span>
             </label>
-
           </div>
 
           <button class="order-send">Отправить</button>
