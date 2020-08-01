@@ -139,16 +139,16 @@ svg {
   pointer-events: none;
   }
 
-  .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-    clip: rect(0 0 0 0);
-    overflow: hidden;
-  }
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+   padding: 0;
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
 
 /* index.html */
 
@@ -1064,12 +1064,26 @@ fill: var(--secondary-color);
   display: flex;
   align-items: center;
   margin-bottom: 30px;
-  margin-left: 40px;
 }
 
-.license-agreement > label {
-  display: block;
-  margin-left: 8px;
+.checkbox-icon {
+
+  margin-right: 8px;
+  width: 16px;
+  height: 15px;
+  border-radius: 2px;
+  background-image: url(../images/icon-checkbox-unchecked.svg);
+  background-origin: content-box;
+  background-position: center;
+
+}
+
+.checkbox:checked ~ .checkbox-icon {
+  background-color: var(--secondary-color);
+  background-image: url(../images/icon-checkbox-checked.svg);
+}
+
+.agreement-description {
 
   line-height: 1.15;
   letter-spacing: 0.01em;
